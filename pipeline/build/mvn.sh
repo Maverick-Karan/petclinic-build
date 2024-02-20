@@ -4,7 +4,7 @@ echo "*************************************"
 echo "********** Building jar *************"
 echo "*************************************"
 
-WORKSPACE=/home/ec2-user/build/jenkins_home/workspace/build
+WORKSPACE=/var/lib/jenkins/workspace/build
 
 docker run --rm -v $WORKSPACE/petclinic-app:/app -v /root/.m2/:/root/.m2/ -w /app maven:3.8-openjdk-18-slim "$@"
 

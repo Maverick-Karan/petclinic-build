@@ -11,8 +11,8 @@ pipeline {
 		          sh '''
                   chmod +x ./pipeline/build/mvn.sh ./pipeline/build/build.sh
                   ./pipeline/build/mvn.sh mvn -DskipTests clean package
-                  chmod -R g+w ./pipeline
-                  cp /home/ec2-user/build/petclinic-app/target/*.jar /home/ec2-user/build/pipeline/build/
+                  chmod -R g+w pipeline/
+                  cp petclinic-app/target/*.jar pipeline/build/
                   ./pipeline/build/build.sh
                 '''
             }

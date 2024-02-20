@@ -2,7 +2,7 @@ FROM openjdk:17-oracle
 
 RUN mkdir -p /home/petclinic
 
-COPY petclinic-app/target/*.jar /home/petclinic/
+COPY /home/ec2-user/build/petclinic-app/target/*.jar /home/petclinic/
 
 WORKDIR /home/petclinic/
 

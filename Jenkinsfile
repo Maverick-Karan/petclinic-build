@@ -9,6 +9,7 @@ pipeline {
             steps {
                 echo 'Building...'
 		          sh '''
+                  chmod +x ./pipeline/build/mvn.sh ./pipeline/build/build.sh
                   ./pipeline/build/mvn.sh mvn -DskipTests clean package
                   ./pipeline/build/build.sh
                 '''

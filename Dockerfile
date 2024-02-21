@@ -7,3 +7,5 @@ COPY target/*.jar /home/petclinic/
 WORKDIR /home/petclinic/
 
 EXPOSE 8080
+
+CMD ["java", "-jar", "*.jar"]

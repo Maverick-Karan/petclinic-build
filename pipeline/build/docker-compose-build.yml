@@ -1,7 +1,0 @@
-version: '3'
-services:
-  app:
-    image: "$IMAGE:$BUILD_NUMBER"
-    build:
-      context: .
-      dockerfile: Dockerfile-app

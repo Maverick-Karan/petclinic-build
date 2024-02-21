@@ -1,9 +1,0 @@
-FROM openjdk:17-oracle
-
-RUN mkdir -p /home/petclinic
-
-COPY *.jar /home/petclinic/
-
-WORKDIR /home/petclinic/
-
-EXPOSE 8080

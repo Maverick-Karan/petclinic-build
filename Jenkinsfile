@@ -8,17 +8,20 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-		          sh '''
-                  chmod +x ./pipeline/build/mvn.sh ./pipeline/build/build.sh
-                  ./pipeline/build/mvn.sh mvn -DskipTests clean package
-                  ./pipeline/build/build.sh
-                '''
+		          sh "mvn -B -DskipTests clean package"
             }
 	         post {
 		         success {
 		            archiveArtifacts artifacts: 'petclinic-app/target/*.jar', fingerprint: true
 		         }
 	         }
+        }
+
+        stage('Image') {
+            steps {
+               echo 'Creating Image'
+               sh "docker build -t $IMAGE:$BUILD_NUMBER ."
+            }
         }
     }
 }

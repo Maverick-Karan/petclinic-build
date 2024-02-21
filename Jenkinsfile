@@ -12,7 +12,7 @@ pipeline {
             }
 	         post {
 		         success {
-		            archiveArtifacts artifacts: 'petclinic-app/target/*.jar', fingerprint: true
+		            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
 		         }
 	         }
         }

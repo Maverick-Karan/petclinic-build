@@ -8,4 +8,4 @@ WORKDIR /home/petclinic/
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "peta-app.jar"]
+CMD ["java", "-jar", "pet-app.jar"]

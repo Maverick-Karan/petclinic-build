@@ -48,6 +48,7 @@ pipeline {
                     sh '''
                         ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
                         -Dsonar.projectKey=maverick-karan_petclinic \
+                        -Dsonar.organization=maverick-karan \
                         -Dsonar.sources=src/ \
                         -Dsonar.tests=src/test \
                         -Dsonar.host.url=https://sonarcloud.io \

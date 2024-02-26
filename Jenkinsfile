@@ -52,7 +52,7 @@ pipeline {
                         -Dsonar.sources=src/ \
                         -Dsonar.tests=src/test \
                         -Dsonar.host.url=https://sonarcloud.io \
-                        -Dsonar.login=${SONAR_TOKEN} \
+                        -Dsonar.token=${SONAR_TOKEN} \
                         -Dsonar.junit.reportsPath=target/surefire-reports/ \
                         -Dsonar.jacoco.reportsPath=target/jacoco.exec \
                         -Dsonar.java.checkstyle.reportPaths=target/checkstyle-result.xml

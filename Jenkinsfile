@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
       IMAGE = "petclinic"
-      SONAR_SCANNER_HOME = tool 'SonarQube Scanner'
+      SONAR_SCANNER_HOME = tool 'sonarscanner'
       SONAR_TOKEN = credentials('SONAR_TOKEN')
    }
     

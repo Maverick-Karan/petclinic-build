@@ -50,7 +50,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv(installationName: 'SonarQube Scanner') {
+                withSonarQubeEnv(installationName: 'sonarscanner') {
                     sh '''
                         ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
                         -Dsonar.projectKey=maverick-karan_petclinic \

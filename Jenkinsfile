@@ -50,7 +50,8 @@ pipeline {
                         -Dsonar.projectKey=maverick-karan_petclinic \
                         -Dsonar.organization=maverick-karan \
                         -Dsonar.sources=src/main \
-                        -Dsonar.exclusions=**/*.java
+                        -Dsonar.exclusions=**/*.java \
+                        ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
                         -Dsonar.host.url=https://sonarcloud.io \
                         -Dsonar.token=${SONAR_TOKEN} \
                         -Dsonar.junit.reportsPath=target/surefire-reports/ \

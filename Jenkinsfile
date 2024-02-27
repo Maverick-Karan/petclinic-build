@@ -4,6 +4,8 @@ pipeline {
       IMAGE = "petclinic"
       SONAR_SCANNER_HOME = tool 'sonarscanner'
       SONAR_TOKEN = credentials('SONAR_TOKEN')
+      DOCKER_USER = "maverick8266"
+      PASS = credentials('dockerhub-pass')
    }
     
     stages {
@@ -61,10 +63,24 @@ pipeline {
             }
         }
 
-        stage('Image') {
+        stage('Build Image') {
             steps {
-               echo 'Creating Image'
+               echo 'Creating Image... '
                sh "docker build -t $IMAGE:$BUILD_NUMBER ."
+            }
+        }
+
+        stage('Push Image') {
+            steps {
+               echo 'Pushing to Dockerhub...'
+               sh '''
+                  echo "*** Logging In ***"
+                  docker login -u $DOCKER_USER -p $PASS 
+                  echo "*** Tagging image ***"
+                  docker tag $IMAGE:$BUILD_NUMBER $DOCKER_USER/$IMAGE:$BUILD_NUMBER
+                  echo "*** Pushing image ***" 
+                  docker push $DOCKER_USER/$IMAGE:$BUILD_NUMBER
+               '''
             }
         }
     }
